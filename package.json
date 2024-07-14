@@ -1,32 +1,33 @@
 {
   "name": "apirestfullnodejs",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "test"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/GomesRita/API-RestFull-Node.js.git"
+    "url": "git+https://github.com/GomesRita/APIRestNode.js.git"
   },
   "keywords": [
     "API",
-    "Node",
-    "MySQL",
-    "Express"
+    "NODE",
+    "SEQUELIZE",
+    "EXPRESS",
+    "MYSQL"
   ],
   "author": "GomesRita",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/GomesRita/API-RestFull-Node.js/issues"
+    "url": "https://github.com/GomesRita/APIRestNode.js/issues"
   },
-  "homepage": "https://github.com/GomesRita/API-RestFull-Node.js#readme",
+  "homepage": "https://github.com/GomesRita/APIRestNode.js#readme",
   "description": "",
   "dependencies": {
+    "body-parser": "^1.20.2",
     "express": "^4.19.2",
-    "mysql": "^2.18.1",
+    "mysql2": "^3.10.2",
     "nodemon": "^3.1.4",
-    "sequelize": "^6.37.3",
-    "sequelize-cli": "^6.6.2"
+    "sequelize": "^6.37.3"
   }
 }

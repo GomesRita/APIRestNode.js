@@ -1,14 +1,17 @@
-const { Sequelize } = require('sequelize')
-
-const sequelize = new Sequelize('biblioteca','root', '',{
+const { timeStamp } = require('console');
+const sequelize = require('sequelize');
+const dbbiblioteca = new sequelize('biblioteca','root', '',{
     dialect: 'mysql',
     host: 'localhost',
-    port: 3306
+    port: 3306,
+    define:{
+        timestamps: false
+    }
 });
 
 const connect = async () => {
     try {
-        await sequelize.authenticate();
+        await dbbiblioteca.authenticate();
         console.log('Conecxão realizada com sucesso');
     } catch (error){
         console.error('Conexão com o banco de dados falho', error);
@@ -16,3 +19,4 @@ const connect = async () => {
 }
 
 connect()
+module.exports = dbbiblioteca;
