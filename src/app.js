@@ -8,8 +8,7 @@ app.use(bodyParser.json());
 app.get('/', (req, res) =>{
     res.send('Hello World!')
 })
-app.use('/Leitor', route);
-
+app.use('/crud', route);
 
 app.listen(3000, () => {
     console.log(`Servidor web iniciado na porta 3000`);

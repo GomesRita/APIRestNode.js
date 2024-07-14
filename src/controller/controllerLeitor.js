@@ -3,8 +3,29 @@ const leitor = require('../models/modelLeitor');
 const { leitores } = require('./controller');
 const controller = {}
 
-controller.createNew = async function (req, res){
+controller.create = async function (req, res){
     try {
+        /**
+        As linhas     
+        
+            const {Email} = req.body;
+            const checkLeitor = await leitor.findOne({ where: { Email } });
+
+        São utilizadas como filtro para buscar registros no banco de dados antes
+        de realizar qualquer operação exemplo:
+
+        No create:
+            Se o email já estiver no banco de dados o INSERT no db não será realizado;
+        No read:
+            Se o email já estiver no banco de dados o SELECT será realizado no db;
+        No update:
+            Se o email já estiver no banco de dados o registro será editado no db;
+        No delete:
+            Se o email já estiver no banco de dados o registro será excluído no db;
+
+        Caso contrário a API informa que a operação não foi realizada pois o Email não foi encontrado
+        ou já está cadastrado
+        */
         const {Email} = req.body;
         const checkLeitor = await leitor.findOne({ where: { Email }});
         if (checkLeitor !== null) {
@@ -35,6 +56,7 @@ controller.createNew = async function (req, res){
         res.status(404).json({ message: "Cadastro falhou"});
     }
 }
+
 controller.update = async function(req, res){
     try{
         const {Email, NomeLeitor, situacao, senha } = req.body;

@@ -3,8 +3,8 @@ const router = express.Router();
 
 const controller = require('../controller/controller')
 
-router.post('/cadastrar', controller.leitores.createNew)
-router.put('/atualizarDados', controller.leitores.update)
-router.delete('/delete', controller.leitores.remove)
-router.get('/retornaLeitor', controller.leitores.read)
+router.post('/postleitor', controller.leitores.create)
+router.put('/putleitor', controller.leitores.update)
+router.delete('/deleteleitor', controller.leitores.remove)
+router.get('/getleitor', controller.leitores.read)
 module.exports = router;
