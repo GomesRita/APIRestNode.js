@@ -37,4 +37,4 @@ A estrutura de pastas e arquivos utilizada para organizar os códigos deste proj
 
 Abaico segue o modelo lógico do banco de dados utilizado:
 
-![modelo lógico](img\bdbiblioteca.png)
+![modelo lógico](img/bdbiblioteca.png)
