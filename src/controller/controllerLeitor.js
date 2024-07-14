@@ -1,5 +1,6 @@
 const modelo = require('../models/model');
 const leitor = require('../models/modelLeitor');
+const { leitores } = require('./controller');
 const controller = {}
 
 controller.createNew = async function (req, res){
@@ -80,6 +81,21 @@ controller.remove = async function (req,res){
         }
     } catch {
         res.status(404).json({ message: "Exclusão falhou" });
+    }
+}
+
+controller.read = async function (req,res){
+    try{
+        const {Email} = req.body
+        const checkLeitor = await leitor.findOne({ where: { Email } });
+        if(checkLeitor !== null){
+            const pesquisa = await leitor.findAll({attributes:[ 'CodLeitor', 'NomeLeitor', 'Email', 'situacao', 'senha', 'data_criacao'], where: {Email}})
+            res.status(200).json({message: 'Leitor ', data: pesquisa   });
+        } else {
+            res.status(500).json({ message: "Este cadastro não existe" });
+        }
+    } catch {
+        res.status(404).json({ message: "Pesquisa falhou" });
     }
 }
 module.exports = controller;
