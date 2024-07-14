@@ -1,0 +1,32 @@
+{
+  "name": "apirestfullnodejs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GomesRita/API-RestFull-Node.js.git"
+  },
+  "keywords": [
+    "API",
+    "Node",
+    "MySQL",
+    "Express"
+  ],
+  "author": "GomesRita",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GomesRita/API-RestFull-Node.js/issues"
+  },
+  "homepage": "https://github.com/GomesRita/API-RestFull-Node.js#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^4.19.2",
+    "mysql": "^2.18.1",
+    "nodemon": "^3.1.4",
+    "sequelize": "^6.37.3",
+    "sequelize-cli": "^6.6.2"
+  }
+}
