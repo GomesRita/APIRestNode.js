@@ -68,5 +68,18 @@ controller.update = async function(req, res){
         res.status(404).json({ message: "Atualização falhou" });
     }
 }
-
+controller.remove = async function (req,res){
+    try{
+        const { Email }  = req.body
+        const checkLeitor = await leitor.findOne({ where: { Email } });
+        if(checkLeitor !== null){
+            await leitor.destroy({where: {Email}})
+            res.status(200).json({ message: "Leitor excluído com sucesso" }); 
+        } else {
+            res.status(500).json({ message: "Este cadastro não existe" });
+        }
+    } catch {
+        res.status(404).json({ message: "Exclusão falhou" });
+    }
+}
 module.exports = controller;
