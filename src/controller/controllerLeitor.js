@@ -1,5 +1,4 @@
 const modelo = require('../models/model');
-const { op } = require('sequelize');
 const leitor = require('../models/modelLeitor');
 const controller = {}
 
@@ -32,7 +31,41 @@ controller.createNew = async function (req, res){
             });
         }
     } catch(error) {
-        res.status(404).json({ message: error.message });
+        res.status(404).json({ message: "Cadastro falhou"});
+    }
+}
+controller.update = async function(req, res){
+    try{
+        const {Email, NomeLeitor, situacao, senha } = req.body;
+        const checkLeitor = await leitor.findOne({ where: { Email } });
+        
+        if (checkLeitor !== null) {
+            await leitor.update({
+                NomeLeitor,
+                Email,
+                situacao,
+                senha,
+            },{where:{Email}
+            })
+            .then((result) => {
+                res.status(201).json({
+                    message: "Dados Atualizados com sucesso",
+                    data: {
+                        NomeLeitor,
+                        Email,
+                        situacao,
+                        senha,
+                    },
+                });
+            })
+            .catch((error) => {
+                res.status(500).json({ message: `Erro ao atualizar dados do leitor ` + error });
+            });
+        } else {
+            res.status(500).json({ message: "Este cadastro não existe" });
+        }
+    } catch(error){
+        res.status(404).json({ message: "Atualização falhou" });
     }
 }
 

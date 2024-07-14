@@ -3,6 +3,7 @@ const router = express.Router();
 
 const controller = require('../controller/controller')
 
-router.post('/', controller.leitores.createNew)
+router.post('/cadastrar', controller.leitores.createNew)
+router.put('/atualizarDados', controller.leitores.update)
 
 module.exports = router;
